@@ -57,7 +57,7 @@ function Projects() {
         />
         <ProjectCard
           src={PortDp}
-          link="https://github.com/Darkcaptain007/Portfolio-Website"
+          link="https://github.com/Darkcaptain007/Yash-Portfolio-Website"
           h3="Personal Portfolio"
           p="Portfolio Website"
         />
