@@ -1,0 +1,147 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  height: 100dvh;
+  min-height: 500px;
+  overflow: hidden; /* Prevent overflow during animation */
+
+  .hero {
+    max-width: 150px;
+    border-radius: 50%;
+    transition: transform 1s ease-in-out;
+    transform: translateX(-100%);
+    animation: slideInRight 1s forwards;
+  }
+
+  span {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+
+    a {
+      margin: 0;
+
+      img {
+        width: 30px;
+      }
+    }
+  }
+
+  a {
+    width: fit-content;
+    align-self: center;
+  }
+
+  button {
+    background-color: var(--btn-color);
+    color: var(--btn-text-color);
+    border: none;
+    border-radius: 20px;
+    width: 126px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+  }
+
+  button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.colorModeContainer {
+  position: relative;
+}
+
+.colorMode {
+  position: absolute;
+  right: 0;
+  width: 25px;
+  animation: fadeIn 2s;
+}
+
+.colorMode:hover {
+  cursor: pointer;
+}
+
+.description {
+  max-width: 24ch;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Horizontal center */
+  align-items: center; 
+  gap: 20px;
+  transition: transform 1s ease-in-out;
+  transform: translateX(100%);
+  animation: slideInLeft 1s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Media Queries */
+@media (width >= 800px) {
+  .container {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .hero {
+      max-width: 350px;
+      width: 350px;
+    }
+    
+    .description {
+      max-width: 30ch; /* Increase max-width for larger screens */
+    }
+  }
+}
+
+@media (width >= 1400px) {
+  .container {
+    .hero {
+      max-width: 400px;
+      width: 400px;
+    }
+    
+    .description {
+      max-width: 27ch; /* Further increase max-width for even larger screens */
+    }
+  }
+}

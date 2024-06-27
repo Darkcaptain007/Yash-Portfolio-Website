@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Initial position for animation */
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Smooth transition */
+
+  &.animate {
+    opacity: 1; /* Visible */
+    transform: translateY(0); /* Final position */
+  }
+
+  img {
+    max-width: 250px;
+    align-self: center;
+    background-color: var(--project-card-bg);
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  a {
+    width: fit-content;
+    text-decoration: none;
+    color: #222;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  a:hover {
+    transform: scale(1.05);
+  }
+}
+
+.projectsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  > div {
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px) rotate(0deg); /* Initial position and no rotation */
+    animation: fadeInUpRoll 0.7s ease-in-out forwards;
+  }
+
+  .container.animate > & > div {
+    opacity: 1; /* Visible */
+    transform: translateY(0) rotate(360deg); /* Final position and rotation */
+  }
+}
+
+@media (width >= 800px) {
+  .projectsContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0 30px;
+  }
+}
+
+@keyframes fadeInUpRoll {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(360deg);
+  }
+}
